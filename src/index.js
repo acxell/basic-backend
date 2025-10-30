@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+app.get('/healthz', (req, res) => {
+  res.status(200).json({ status: 'healthy' });
+});
+
 const productController = require("./product/products.controller");
 const cartController = require("./carts/carts.controller");
 const orderController = require("./orders/orders.controller");

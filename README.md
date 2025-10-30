@@ -17,7 +17,6 @@ A Node.js backend service for the Softbuy e-commerce platform built with Express
 - Express.js
 - Prisma ORM
 - PostgreSQL
-- JSON Web Tokens (JWT)
 
 ## Project Structure
 
@@ -109,7 +108,6 @@ npm run dev
 
 ```env
 DATABASE_URL="postgresql://user:password@localhost:5432/softbuy"
-JWT_SECRET="your-jwt-secret"
 PORT=3000
 ```
 
@@ -141,7 +139,6 @@ The API uses standard HTTP status codes:
 
 ## Security
 
-- JWT authentication
 - Password hashing
 - Input validation
 - CORS protection
