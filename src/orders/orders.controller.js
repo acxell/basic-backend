@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 router.get("/high-value-users", async (req, res) => {
   try {
     const users = await prisma.$queryRaw`
-      SELECT DISTINCT u.id, u.name, u.email
+      SELECT DISTINCT u.id, u.name, u.email, o.total
       FROM "Users" u
       INNER JOIN "Orders" o ON u.id = o."user_id"
       WHERE o.total > 1000000
@@ -57,8 +57,8 @@ router.get("/average-orders", async (req, res) => {
 router.put("/update-status", async (req, res) => {
   try {
     await prisma.$queryRaw`
-      UPDATE "Order"
-      SET status = 'completed'
+      UPDATE "Orders"
+      SET status = 'finish'
       WHERE total > 500000
     `;
     res.json({
